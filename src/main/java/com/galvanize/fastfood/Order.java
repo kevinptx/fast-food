@@ -1,7 +1,5 @@
 package com.galvanize.fastfood;
 
-import entities.Status;
-
 import javax.persistence.*;
 
 @Entity
