@@ -2,10 +2,10 @@ package entities;
 
 import javax.persistence.*;
 
-@Entity(name = "orders")
+@Entity(name = "Orders")
 public class Order {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
-        Long id;
+    Long id;
     @Column(name = "customer_name")
     String customerName;
     @Column(name ="created_at")
