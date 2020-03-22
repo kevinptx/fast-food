@@ -2,6 +2,7 @@ package com.galvanize.controllers;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.galvanize.dto.OrderRequest;
+import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
@@ -12,6 +13,8 @@ import org.springframework.test.web.servlet.MvcResult;
 import org.springframework.test.web.servlet.ResultActions;
 
 import java.io.UnsupportedEncodingException;
+import java.util.Arrays;
+import java.util.List;
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
@@ -30,8 +33,11 @@ class OrderControllerTest {
     @Autowired
     ObjectMapper objectMapper;
 
+    //CREATE
+
+
     @Test
-    public void testPost() throws Exception {
+    public void testPostOrder() throws Exception {
         //Setup
         String customerName = "Hungry Man Jr";
         String description = "Burger, double meat, extra pickles, doughnut buns, diet coke";
@@ -54,8 +60,11 @@ class OrderControllerTest {
     }
 
 
+    //READ
+
+    
     @Test
-    public void testEndPoint() throws Exception {
+    public void testGetAllOrders() throws Exception {
         //Setup
         String url = "/api/orders";
         //Exercise
@@ -69,5 +78,7 @@ class OrderControllerTest {
         //assertEquals(expected, actual);
         //Teardown
     }
+
+
 
 }
