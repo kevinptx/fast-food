@@ -1,4 +1,4 @@
-package com.galvanize.fastfood.entities;
+package com.galvanize.entities;
 
 import javax.persistence.*;
 
@@ -19,6 +19,11 @@ public class Order {
     String lastUpdated;
 
     public Order(){
+    }
+
+    public Order(String customerName, String description){
+        this.customerName = customerName;
+        this.description = description;
     }
 
     public Order(Long id, String customerName, String createdAt, Enum status, String description, String lastUpdated){

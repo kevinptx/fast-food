@@ -1,4 +1,4 @@
-package com.galvanize.fastfood.entities;
+package com.galvanize.entities;
 
 public enum Status {
     PENDING,
