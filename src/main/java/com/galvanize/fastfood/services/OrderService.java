@@ -2,7 +2,7 @@ package com.galvanize.fastfood.services;
 
 import com.galvanize.fastfood.entities.Order;
 import com.galvanize.fastfood.entities.Status;
-import com.galvanize.fastfood.repository.OrderDao;
+import com.galvanize.fastfood.repositories.OrderDao;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

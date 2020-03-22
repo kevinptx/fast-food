@@ -1,4 +1,4 @@
-package com.galvanize.fastfood.repository;
+package com.galvanize.fastfood.repositories;
 
 import com.galvanize.fastfood.entities.Order;
 import org.springframework.data.jpa.repository.JpaRepository;
