@@ -2,7 +2,11 @@ package com.galvanize.controllers;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.galvanize.dto.OrderRequest;
-import org.junit.jupiter.api.Order;
+import com.galvanize.entities.Order;
+import com.galvanize.entities.Status;
+import com.galvanize.repositories.OrderDao;
+import com.galvanize.services.OrderService;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
@@ -33,6 +37,24 @@ class OrderControllerTest {
     @Autowired
     ObjectMapper objectMapper;
 
+    @Autowired
+    OrderService orderService;
+
+
+    @Autowired
+    OrderDao orderDao;
+
+
+    @BeforeEach
+    void setUp(){
+        //create test orders
+        Order order1 = new Order("TestCustomer1", "19-20-30", Status.CANCELLED, "I bought too much TP!", "5-30-20" );
+        Order order2 = new Order("TestCustomer2", "12-10-30", Status.PENDING, "I'm ready for my tuna cans!", "5-6-20" );
+        orderService.createOrder(order1);
+        orderService.createOrder(order2);
+    }
+
+
     //CREATE
 
 
@@ -53,7 +75,7 @@ class OrderControllerTest {
                 .andExpect(status().isOk());
         MvcResult result = resultActions.andReturn();
         String contentAsString = result.getResponse().getContentAsString();
-        //List<Order> orders = Arrays.asList(objectMapper.readValue(contentAsString, Order[].class));
+        //Order order = objectMapper.readValue(contentAsString, Order.class);
         //Assert
         //assertEquals(expected, actual);
         //Teardown
@@ -62,7 +84,7 @@ class OrderControllerTest {
 
     //READ
 
-    
+
     @Test
     public void testGetAllOrders() throws Exception {
         //Setup

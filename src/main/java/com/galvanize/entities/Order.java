@@ -1,5 +1,7 @@
 package com.galvanize.entities;
 
+import com.fasterxml.jackson.annotation.JsonValue;
+
 import javax.persistence.*;
 
 @Entity
