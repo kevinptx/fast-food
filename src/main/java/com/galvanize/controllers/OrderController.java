@@ -46,4 +46,22 @@ public class OrderController {
         List<Order> orders = orderService.getAllOrders();
         return orders;
     }
+
+    @GetMapping("/orders/{id}")
+    public Order getOrderById(@PathVariable long id){
+        Order order = orderService.getOrder(id);
+        return order;
+    }
+
+
+    // UPDATE
+    @PutMapping("/orders{id}")
+    public Order updateOrderStatus(@PathVariable Long id, @RequestBody OrderUpdate update){
+        //pull data fields off the request body object
+        String customerName = updateOrderStatus().getCustomerName();
+        Status status = update.getStatus();
+        String note = update.getNote();
+        Order order = orderService.updateOrder(id, customerName, status, note);
+        return order;
+    }
 }
